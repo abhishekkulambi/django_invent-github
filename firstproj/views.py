@@ -18,9 +18,12 @@ def home_view(request):
 
 	# from the database?
 	article_obj = Article.objects.get(id=random_id)
-    
+	#my_list = [101, 102, 103, 104, 105]
+	article_queryset = Article.objects.all()
 
 	context = {
+		#"my_list": my_list,
+		"object_list": article_queryset,
 		"object": article_obj,
 		"title": article_obj.title,
 		"id": article_obj.id,
