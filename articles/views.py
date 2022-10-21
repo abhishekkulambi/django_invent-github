@@ -23,6 +23,20 @@ def article_search_view(request):
     return render(request, "articles/search.html", context=context)
 
 
+#create a article
+def article_create_view(request):
+
+    context = {}
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        #print(title, content)
+        article_object = Article.objects.create(title=title, content=content)
+        context['object'] = article_object
+        context['created'] = True
+    #context = {}
+    return render(request, "articles/create.html", context=context)
+
 def article_detail_view(request, id=None):
 
     article_obj = None
