@@ -8,13 +8,14 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 from articles.models import Article
 
-def home_view(request):
+def home_view(request, *args, **kwargs):
 
 	"""
 	Take in a request & return Html as a response 
 	"""
 	name = "Abhi"
 	random_id = random.randint(1,4)
+
 
 	# from the database?
 	article_obj = Article.objects.get(id=random_id)
